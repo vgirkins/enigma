@@ -16,6 +16,7 @@ namespace Enigma
 
         public EnigmaMachine(Scrambler scrambler1, Scrambler scrambler2, Scrambler scrambler3, Reflector reflector, Plugboard plugboard)
         {
+            // TODO make generic number scramblers
             this.scrambler1 = scrambler1;
             this.scrambler2 = scrambler2;
             this.scrambler3 = scrambler3;

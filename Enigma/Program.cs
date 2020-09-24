@@ -23,7 +23,7 @@ namespace Enigma
         static void Main(string[] args)
         {
             Console.WriteLine("I have eight scramblers. Please indicate the ones you would like to use, in order (e.g. '4,1,8'): ");
-            var scramblerIndices = Console.ReadLine().Split(',').Select(s => int.Parse(s) - 1);
+            var scramblerIndices = Console.ReadLine().Replace(" ", "").Split(',').Select(s => int.Parse(s) - 1);
             while (scramblerIndices.Any(s => s < 0 || s > 7))
             {
                 Console.WriteLine("Please only enter numbers from 1 to 8.");
@@ -42,10 +42,19 @@ namespace Enigma
             var message = Console.ReadLine();
             while (message != "Q" && message != "q")
             {
-                var cryptedMessage = enigmaMachine.Crypt(message);
-                Console.WriteLine("\r\n\r\nThe crypted message is: \r\n" + cryptedMessage);
-                Console.WriteLine("\r\nEnter another message, or 'Q' to quit:");
-                message = Console.ReadLine();
+                try
+                {
+                    var cryptedMessage = enigmaMachine.Crypt(message);
+                    Console.WriteLine("\r\n\r\nThe crypted message is: \r\n" + cryptedMessage);
+                    Console.WriteLine("\r\nEnter another message, or 'Q' to quit:");
+                    message = Console.ReadLine();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    Console.ReadKey();
+                    return;
+                }
             }
         }
     }

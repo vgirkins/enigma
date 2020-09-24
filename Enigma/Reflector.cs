@@ -14,7 +14,7 @@ namespace Enigma
         public Reflector(int[] letterSwaps1, int[] letterSwaps2)
         {
             if (letterSwaps1.Count() != 13 || letterSwaps2.Count() != 13)
-                throw new AxisException("You must specify 13 numbers in each array to be swapped with each other.");
+                throw new AxisException("You must specify 13 numbers in each array to be swapped with each other");
 
             this.letterSwaps1 = letterSwaps1;
             this.letterSwaps2 = letterSwaps2;

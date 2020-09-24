@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Enigma
@@ -17,8 +18,8 @@ namespace Enigma
         /// <returns></returns>
         public static int ToCode(char c)
         {
-            if (c < 65 || (c > 90 && c < 97) || c > 122)
-                throw new AxisException("You may only include letters and spaces in your message.");
+            if (!Regex.Match(c.ToString(), @"[A-Za-z\s]").Success)
+                throw new AxisException("You may only include letters and spaces in your message");
 
             var code = c - asciiBase;
             if (code > 25)

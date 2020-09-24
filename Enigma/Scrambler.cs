@@ -13,7 +13,7 @@ namespace Enigma
         public Scrambler(int[] wirings)
         {
             if (wirings.Count() != EnigmaHelper.NumLetters)
-                throw new AxisException("You must specify exactly 26 wirings.");
+                throw new AxisException("You must specify exactly 26 wirings");
 
             this.rotationTracker = 0;
             this.wirings = wirings;

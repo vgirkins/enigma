@@ -13,10 +13,10 @@ namespace Enigma
         public Plugboard(int[][] cables)
         {
             if (cables.Any(c => c.Count() != 2))
-                throw new AxisException("Cables can only connect two letters each.");
+                throw new AxisException("Cables can only connect two letters each");
 
             if (cables.Any(c => cables.Count(k => k.Contains(c[0]) || k.Contains(c[1])) > 1))
-                throw new AxisException("You may only plug one cable into a given letter.");
+                throw new AxisException("You may only plug one cable into a given letter");
 
             this.cables = cables;
         }
